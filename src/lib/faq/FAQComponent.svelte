@@ -54,7 +54,7 @@
 	}
 </script>
 
-<div class="hidden lg:block">
+<div class="hidden lg:block pb-20">
 	<div class=" flex min-h-screen items-start gap-2 lg:mx-[92px]">
 		{#if !faqError && !categoryError}
 			<div
@@ -96,7 +96,7 @@
 	</div>
 </div>
 
-<div class="block lg:hidden">
+<div class="block lg:hidden pb-20">
 	<div class=" bg-blue-10 px-4 pt-4 pb-8 rounded-lg tranform -translate-y-[65.5px] mx-4 mb-4 mt-16">
 		<div class="px-0 pb-4 pt-0">
 			<BreadCrumbs {route} />
@@ -104,7 +104,7 @@
 		<h2 class="text-base sm:text-2xl font-bold text-primary">{$_('FrequentlyAskedQuestions')}</h2>
 	</div>
 
-	<div class="tranform -translate-y-[65.5px] mx-4 mb-8">
+	<div class="tranform -translate-y-[65.5px] mx-4 mb-8 bg-blue-10 py-8 px-4">
 		{#if !faqError}
 			{#each faqSideBarList as sideBarItem, index (index)}
 				<SingleAccordionElementMobileView
