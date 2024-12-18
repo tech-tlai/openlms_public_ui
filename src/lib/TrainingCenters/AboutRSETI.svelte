@@ -7,7 +7,7 @@
 </script>
 
 <div
-	class="bg-blue-10 px-8 pt-4 pb-8 mb-8 mt-0 lg:mb-9 lg:mt-0 lg:px-12 lg:pb-9 lg:pt-6 lg:min-h-40"
+	class="bg-blue-10 px-8 pt-4 pb-8 mb-8 mt-0 lg:mb-9 lg:mt-0 lg:pb-9 lg:pt-6 lg:min-h-40 lg:px-[92px]"
 >
 	<p class="text-darkGray text-xs mb-6"><BreadCrumbs {route} {params} /></p>
 	<div class="  flex flex-col rounded-lg text-darkGray sm:flex-row sm:justify-between gap-8">

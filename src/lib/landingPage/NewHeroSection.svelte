@@ -1,4 +1,4 @@
-<section class="w-full min-h-[600px] bg-white">
+<section class="w-full min-h-[600px] bg-white 2xl:max-w-7xl mx-auto">
 	<div class=" mx-auto grid md:grid-cols-2 gap-0">
 		<!-- Image Section -->
 		<div class="relative h-[600px] overflow-hidden">
@@ -17,7 +17,7 @@
 
 			<p class="text-gray-600 text-base md:text-lg mb-8 max-w-xl text-left">
 				Our platform seamlessly blends traditional knowledge with innovative technology, creating a
-				unique and effective educational experience for analog people.
+				unique and effective educational experience for all.
 			</p>
 
 			<a

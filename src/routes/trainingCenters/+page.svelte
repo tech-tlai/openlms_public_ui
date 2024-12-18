@@ -235,8 +235,8 @@
 	});
 </script>
 
+<AboutRseti {params} {route} />
 <div class=" mx-4 mb-8 mt-0 lg:mx-[92px] lg:mb-9 lg:mt-0">
-	<AboutRseti {params} {route} />
 	<Filters
 		on:handleFilters={handleFilter}
 		bind:courseFilterValue

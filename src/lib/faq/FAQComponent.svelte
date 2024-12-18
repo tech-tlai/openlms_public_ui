@@ -57,9 +57,7 @@
 <div class="hidden lg:block pb-20">
 	<div class=" flex min-h-screen items-start gap-2 lg:mx-[92px]">
 		{#if !faqError && !categoryError}
-			<div
-				class="w-1/5 border-r-2 border-r-gray-10 px-4 2xl:px-2 py-4 bg-blue-10 rounded-lg sticky top-16"
-			>
+			<div class="w-1/5 border-r-2 border-r-gray-10 px-4 2xl:px-2 py-4 bg-blue-10 rounded-lg">
 				<!-- category prop is used to set the default to 0th category -->
 				<Sidebar
 					{bgColor}
@@ -109,7 +107,6 @@
 			{#each faqSideBarList as sideBarItem, index (index)}
 				<SingleAccordionElementMobileView
 					{sideBarItem}
-					border={'border-none'}
 					fontWeight={'font-medium'}
 					expanded={expandedItem === sideBarItem?.id}
 					on:handleAccordionClick={handleAccordionClick}

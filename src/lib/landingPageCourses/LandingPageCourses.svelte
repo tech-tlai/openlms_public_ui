@@ -70,7 +70,7 @@
 	}
 </script>
 
-<div class=" relative px-4 pb-16 sm:pb-24 sm:px-6 lg:pt-0 lg:px-24" id="course-area">
+<div class=" relative px-4 pb-16 sm:pb-24 sm:px-6 lg:px-12 lg:py-24 py-12" id="course-area">
 	<div class="relative mx-auto max-w-7xl">
 		<div class=" font-bold text-primary mb-4 sm:mb-8 flex items-center gap-2">
 			<!-- <div class="hidden sm:block"><ReapPartialLogo fillBody="#fff" /></div>

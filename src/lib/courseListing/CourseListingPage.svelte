@@ -11,7 +11,7 @@
 	export let allCoursesData;
 </script>
 
-<div class="bg-blue-10 px-8 pt-4 pb-8 mb-8 mt-0 lg:mb-9 lg:mt-0 lg:px-12 lg:pb-9 lg:pt-6">
+<div class="bg-blue-10 px-8 pt-4 pb-8 mb-8 mt-0 lg:mb-9 lg:mt-0 lg:px-[92px] lg:pb-9 lg:pt-6">
 	<div class="max-w-7xl mx-auto">
 		<div class="pb-4 lg:pb-6">
 			<BreadCrumbs {route} {params} />

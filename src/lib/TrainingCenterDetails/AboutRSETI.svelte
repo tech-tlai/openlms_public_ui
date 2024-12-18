@@ -8,7 +8,7 @@
 	export let totalCourses = 0;
 </script>
 
-<div class="bg-blue-10 rounded-md px-4 pt-4 pb-4 sm:px-9 sm:pb-12 sm:pt-6">
+<div class="bg-blue-10 rounded-md px-4 pt-4 pb-4 sm:px-9 sm:pb-12 sm:pt-6 lg:px-[92px]">
 	<p class="text-darkGray text-xs mb-6 sm:mb-8"><BreadCrumbs {route} {params} /></p>
 	<div class="flex flex-col rounded-lg text-darkGray sm:flex-row sm:justify-between gap-6">
 		<div class="flex-1">
@@ -28,7 +28,7 @@
 				</div>
 			</div>
 
-			<h3 class="text-sm text-darkGray font-medium mt-6">
+			<h3 class="text-sm text-darkGray font-semibold mt-6">
 				{$_('Address')}:
 			</h3>
 			<div class="text-sm text-darkGray mb-2">
@@ -41,13 +41,13 @@
 			</div>
 
 			<h3 class="text-sm text-darkGray mb-1">
-				<span class="font-medium">
+				<span class="font-semibold">
 					{$_('Phone')}:
 				</span>
 				{centerData?.contactNo ?? '-'}
 			</h3>
 			<h3 class="text-sm text-darkGray mb-1">
-				<span class="font-medium">
+				<span class="font-semibold">
 					{$_('Email')}:
 				</span>
 				{centerData?.email ?? '-'}
@@ -55,16 +55,16 @@
 		</div>
 
 		<div class="flex justify-center sm:items-start gap-4 flex-1">
-			<div class="flex-1 rounded-md bg-white p-4">
-				<h2 class="text-xs sm:text-base text-darkGray mb-2">
+			<div class="flex-1 rounded-md bg-white p-4 border border-gray-50">
+				<h2 class="text-xs sm:text-sm text-darkGray mb-2">
 					{$_('TotalCourses')}
 				</h2>
 				<h3 class="uppercase-body-text">
 					{rsetiStats?.totalCourses ?? '-'}
 				</h3>
 			</div>
-			<div class="flex-1 rounded-md bg-white p-4">
-				<h2 class="text-xs sm:text-base text-darkGray mb-2">{$_('TotalTrainees')}</h2>
+			<div class="flex-1 rounded-md bg-white p-4 border border-gray-50">
+				<h2 class="text-xs sm:text-sm text-darkGray mb-2">{$_('TotalTrainees')}</h2>
 				<h3 class="uppercase-body-text">
 					{rsetiStats?.totalTrainees ?? '-'}
 				</h3>

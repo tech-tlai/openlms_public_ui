@@ -151,9 +151,9 @@
 	});
 </script>
 
-<div class=" mx-4 mb-8 mt-0 lg:mx-[92px] lg:mb-9 lg:mt-0">
-	<AboutRSETI {params} {route} {centerData} {rsetiStats} totalCourses={tableData.length} />
+<AboutRSETI {params} {route} {centerData} {rsetiStats} totalCourses={tableData.length} />
 
+<div class=" mx-4 mb-8 mt-0 lg:mx-[92px] lg:mb-9 lg:mt-0">
 	<h1 class="text-base text-primary mt-6 mb-4">
 		<span class="font-bold">{$_('Courses')}</span> ({tableData.length ?? '-'})
 	</h1>

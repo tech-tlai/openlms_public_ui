@@ -35,7 +35,7 @@
 <div class="relative bg-white50 py-8 md:py-20">
 	<!-- pb - given to he testimonial container to maintain shadow -->
 	<div
-		class="px-4 pr-0 md:px-16 md:pr-0 lg:px-16 w-full h-full 2xl:max-w-7xl 2xl:mx-auto 2xl:px-0 lg:pb-32"
+		class="px-4 pr-0 md:px-16 md:pr-0 lg:px-12 w-full h-full 2xl:max-w-7xl 2xl:mx-auto 2xl:px-0 lg:pb-32"
 	>
 		<div class=" font-bold text-primary mb-4 sm:mb-8 flex items-center gap-2">
 			<!-- <div class="hidden sm:block"><ReapPartialLogo /></div>
