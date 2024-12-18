@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Noto Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+@layer utilities {
+	.uppercase-headers {
+		@apply font-bebas font-medium text-primary  uppercase tracking-wide text-2xl sm:text-4xl  leading-tight sm:leading-tight md:leading-tight;
+	}
+	.uppercase-body-text {
+		@apply font-bebas font-medium text-primary  uppercase tracking-wide text-2xl sm:text-3xl  leading-tight sm:leading-tight md:leading-tight;
+	}
+	.uppercase-small-text {
+		@apply font-bebas font-medium text-primary  uppercase tracking-wide text-2xl   leading-tight sm:leading-tight md:leading-tight;
+	}
+
+	.primary-btn {
+		@apply text-sm lg:text-sm rounded-[4px] font-medium text-white bg-secondary px-6 py-2;
+	}
+	.secondary-btn {
+		@apply text-sm lg:text-sm rounded-[4px] font-medium text-white bg-primary px-6 py-2;
+	}
+	.tertiary-btn {
+		@apply text-sm lg:text-sm rounded-[4px] font-medium text-primary bg-blue-20 border border-secondary px-6 py-2;
+	}
+}
+
+.customized-scrollbar::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	background-color: #ffffff0d; /* or add it to the track */
+}
+
+/* Add a thumb */
+.customized-scrollbar::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: #3dc2ee;
+}
+
+.snap-inline {
+	scroll-snap-type: inline mandatory;
+}
+
+.snap-inline > * {
+	scroll-snap-align: start;
+}
+
+/* ---- CSS for datatable header hover ---- */
+.sort-icon {
+	color: rgba(255, 255, 255, 0);
+}
+.table-header:hover button .sort-icon {
+	color: rgba(255, 255, 255, 1);
+}
+/* ---- CSS for datable header end ---- */
