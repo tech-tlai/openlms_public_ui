@@ -3,7 +3,6 @@
 	import CommonLayoutPattern from '$lib/Components/CommonLayoutPattern.svelte';
 	import { _ } from 'svelte-i18n';
 	import VideoPlayer from '$lib/Components/VideoPlayer.svelte';
-	import CustomVideoPlayer from '$lib/Components/CustomVideoPlayer.svelte';
 	import YoutubePlayer from '$lib/Components/YoutubePlayer.svelte';
 
 	export let generalStats = [];
@@ -24,7 +23,11 @@
 					<p
 						class="pb-4 sm:pb-6 text-sm sm:text-base text-darkGray leading-loose sm:leading-relaxed"
 					>
-						{$_('LandingPageAboutContent')}
+						Discover a world of knowledge and skills at your fingertips. Our e-skilling platform
+						offers a diverse range of courses, from coding and data science to business management
+						and digital marketing. Learn at your own pace, with flexible learning paths and
+						expert-led instruction. 1 Join a global community of learners and unlock your full
+						potential.
 					</p>
 				</div>
 
@@ -32,10 +35,7 @@
 					class=" shadow-lg rounded-lg overflow-hidden items-center flex bg-secondary aspect-video"
 				>
 					<!-- <VideoPlayer {token} videoId={'gcc-912540da-026f-4283-93d7-ec13dc4f911f'} /> -->
-					<!-- <CustomVideoPlayer
-						src={'https://www.youtube.com/watch?v=NPQUVaiEajA&pp=ygUGdW5pY2Vm'}
-						poster="https://static.vecteezy.com/system/resources/previews/006/326/445/non_2x/media-icon-set-of-video-player-symbol-for-web-page-design-vector.jpg"
-					/> -->
+
 					<YoutubePlayer videoId={'NPQUVaiEajA'} />
 				</div>
 			</div>

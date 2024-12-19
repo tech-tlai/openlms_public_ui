@@ -9,8 +9,10 @@
 	import GeneralStats from '$lib/landingPage/GeneralStats.svelte';
 	import { _ } from 'svelte-i18n';
 	import VideoPlayer from '$lib/Components/VideoPlayer.svelte';
+	import YoutubePlayer from '$lib/Components/YoutubePlayer.svelte';
 	import { page } from '$app/stores';
 	import { categoryList as courseCategoryList } from '$lib/temp.admin.js';
+	import { extractYouTubeVideoId } from '$lib/utils/helper.js';
 
 	export let params;
 	export let route;
@@ -63,7 +65,7 @@
 
 {#if !loading && error === null}
 	<div
-		class=" bg-blue-10 px-8 pt-4 pb-8 mb-8 mt-0 lg:mb-9 lg:mt-0 lg:px-12 lg:pb-9 lg:pt-6 lg:min-h-40"
+		class=" bg-blue-10 px-8 pt-4 pb-8 mb-8 mt-0 lg:mb-9 lg:mt-0 lg:px-[92px] lg:pb-9 lg:pt-6 lg:min-h-40"
 	>
 		<div class="pb-6 lg:pb-6">
 			<BreadCrumbs {route} {params} />
@@ -106,7 +108,7 @@
 				</div>
 
 				<div class="hidden lg:block">
-					<CourseStats bgColor="white" {courseStatsDetails} />
+					<CourseStats bgColor="white border border-gray-50" {courseStatsDetails} />
 				</div>
 				<div class="block lg:hidden">
 					<GeneralStats
@@ -121,8 +123,10 @@
 			</div>
 			<div class=" mb-4 lg:mb-0 lg:w-3/5 md:justify-self-center flex items-end">
 				{#if courseDetails.aboutVideoExtid}
-					<VideoPlayer
-						videoId={courseDetails.aboutVideoExtid ? courseDetails.aboutVideoExtid : 'null'}
+					<YoutubePlayer
+						videoId={courseDetails.aboutVideoUrl
+							? extractYouTubeVideoId(courseDetails.aboutVideoUrl)
+							: 'null'}
 					/>
 				{/if}
 			</div>

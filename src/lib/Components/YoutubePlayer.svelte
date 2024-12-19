@@ -4,6 +4,7 @@
 	import { browser } from '$app/environment';
 
 	export let videoId;
+	let videoLoadError = false;
 	let player;
 	let mounted = false;
 	let videoLoaded = false;
@@ -66,56 +67,60 @@
 		if (browser && mounted) {
 			dispatch('playerLoaded', false);
 			videoLoaded = false;
-			if (!videoId) return;
+			if (!videoId) {
+				if (videoId === null) {
+					videoLoaded = true;
+					videoLoadError = true;
+					dispatch('error', 'Invalid Url');
+				}
+				return;
+			}
 
 			await loadScript('https://www.youtube.com/iframe_api');
 			scriptLoaded = true;
 
 			try {
-				// const interval = setInterval(async () => {
-				// 	if (typeof YT != 'undefined') {
-				// 		clearInterval(interval);
-				// 		// if (player) {
-				// 		// 	player.destroy();
-				// 		// 	player = null;
-				// 		// 	await tick();
-				// 		// }
-				// 		player = new YT.Player(divId, {
-				// 			height: '390',
-				// 			width: '640',
-				// 			videoId,
-				// 			events: {
-				// 				onReady: playerIsReady,
-				// 				onStateChange: playerStateChange
-				// 			}
-				// 		});
-				// 		console.log('loading player');
-				// 	}
-				// }, 150);
-				if (typeof YT === 'undefined') {
-					await new Promise((resolve) => {
-						window.onYouTubeIframeAPIReady = resolve;
-					});
-				}
-				player = new YT.Player(divId, {
-					height: '390',
-					width: '640',
-					videoId,
-					events: {
-						onReady: playerIsReady,
-						onStateChange: playerStateChange
+				console.log('b4 interval');
+				const interval = setInterval(async () => {
+					if (typeof YT != 'undefined') {
+						console.log('videoId B4', videoId);
+						clearInterval(interval);
+
+						// await new Promise((resolve) => {
+						// 	console.log('Inside promise');
+						// 	window.onYouTubeIframeAPIReady = resolve;
+						// 	console.log('after resolution');
+						// });
+
+						try {
+							const playerDiv = document.getElementById(divId);
+							const playerWidth = playerDiv.offsetWidth;
+							const playerHeight = (playerWidth * 9) / 16;
+
+							player = new YT.Player(divId, {
+								height: playerHeight,
+								width: playerWidth,
+								videoId,
+								events: {
+									onReady: playerIsReady,
+									onStateChange: playerStateChange
+								}
+							});
+							console.log('player', player);
+						} catch (err) {
+							console.log('yt player error', err);
+						}
 					}
-				});
+				}, 150);
 			} catch (err) {
 				console.log('error is', err);
 			} finally {
 				dispatch('playerLoaded', true);
-				// videoLoaded = true;
+				videoLoaded = true;
 			}
 		}
 	}
 
-	$: console.log('player', player);
 	function playerStateChange({ data }) {
 		dispatch('PlayerStateChange', data);
 		console.log('Player state changed');
@@ -132,4 +137,34 @@
 	}
 </script>
 
-<div id={divId} />
+<div class="w-full relative shadow-sm">
+	{#if !videoLoaded}
+		<div class="absolute top-0 left-0 w-full bg-gray-50 animate-pulse z-40 h-[95%]"></div>
+		<div
+			class="w-20 h-20 border-8 border-gray-30 border-t-blue-100 z-50 absolute top-1/2 left-1/2 rounded-full -translate-x-1/2 -translate-y-1/2 round-loader origin-[0%_0%]"
+		></div>
+	{/if}
+	{#if videoLoadError}
+		<div
+			class="absolute top-0 left-0 w-full bg-gray-50 z-40 h-[95%] flex items-center justify-center"
+		>
+			<h2 class="text-primary font-medium">Oops.Something went wrong! Failed to load video.</h2>
+		</div>
+	{/if}
+	<div id={divId} class="w-full aspect-video" />
+</div>
+
+<style>
+	.round-loader {
+		animation: spin 1s ease-out infinite;
+	}
+
+	@keyframes spin {
+		0% {
+			rotate: 0deg;
+		}
+		100% {
+			rotate: 360deg;
+		}
+	}
+</style>

@@ -14,6 +14,7 @@
 	import YoutubePlayer from '$lib/Components/YoutubePlayer.svelte';
 	import { page } from '$app/stores';
 	import { browser } from '$app/environment';
+	import { extractYouTubeVideoId } from '$lib/utils/helper.js';
 
 	export let route;
 	export let params;
@@ -87,7 +88,10 @@
 				<BreadCrumbs {route} {params} {searchParams} />
 			</div>
 			<div class="aspect-video p-4 pt-0 relative h-fit">
-				<YoutubePlayer videoId={videoDetails.url} on:playerLoaded={handlePlayerLoaded} />
+				<YoutubePlayer
+					videoId={extractYouTubeVideoId(videoDetails.url)}
+					on:playerLoaded={handlePlayerLoaded}
+				/>
 			</div>
 		</div>
 		<div class="lg:hidden">
