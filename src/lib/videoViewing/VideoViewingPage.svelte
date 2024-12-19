@@ -11,6 +11,7 @@
 	import SelectInput from '$lib/Components/SelectInput.svelte';
 	import { format } from 'svelte-i18n';
 	import VideoPlayer from '$lib/Components/VideoPlayer.svelte';
+	import YoutubePlayer from '$lib/Components/YoutubePlayer.svelte';
 	import { page } from '$app/stores';
 	import { browser } from '$app/environment';
 
@@ -76,6 +77,7 @@
 	function handlePlayerLoaded(event) {
 		videoLoaded = event.detail;
 	}
+	// $: console.log('videoDetails', videoDetails);
 </script>
 
 <div class="lg:flex gap-4 mb-4">
@@ -84,8 +86,8 @@
 			<div class="px-4 py-3">
 				<BreadCrumbs {route} {params} {searchParams} />
 			</div>
-			<div class="aspect-auto p-4 pt-0 relative h-fit">
-				<VideoPlayer videoId={videoDetails.extId} on:playerLoaded={handlePlayerLoaded} />
+			<div class="aspect-video p-4 pt-0 relative h-fit">
+				<YoutubePlayer videoId={videoDetails.url} on:playerLoaded={handlePlayerLoaded} />
 			</div>
 		</div>
 		<div class="lg:hidden">

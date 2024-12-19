@@ -4,6 +4,7 @@
 	import { _ } from 'svelte-i18n';
 	import VideoPlayer from '$lib/Components/VideoPlayer.svelte';
 	import CustomVideoPlayer from '$lib/Components/CustomVideoPlayer.svelte';
+	import YoutubePlayer from '$lib/Components/YoutubePlayer.svelte';
 
 	export let generalStats = [];
 	export let token;
@@ -31,10 +32,11 @@
 					class=" shadow-lg rounded-lg overflow-hidden items-center flex bg-secondary aspect-video"
 				>
 					<!-- <VideoPlayer {token} videoId={'gcc-912540da-026f-4283-93d7-ec13dc4f911f'} /> -->
-					<CustomVideoPlayer
+					<!-- <CustomVideoPlayer
 						src={'https://www.youtube.com/watch?v=NPQUVaiEajA&pp=ygUGdW5pY2Vm'}
 						poster="https://static.vecteezy.com/system/resources/previews/006/326/445/non_2x/media-icon-set-of-video-player-symbol-for-web-page-design-vector.jpg"
-					/>
+					/> -->
+					<YoutubePlayer videoId={'NPQUVaiEajA'} />
 				</div>
 			</div>
 			<div class="">
