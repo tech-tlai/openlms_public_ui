@@ -12,7 +12,9 @@
 </script>
 
 <div>
-	<div class="px-4 py-12 sm:pb-8 lg:px-12 md:pb-16 h-auto 2xl:max-w-7xl w-full mx-auto">
+	<div
+		class="lg:py-24 py-12 sm:pb-8 px-4 sm:px-6 lg:px-12 md:pb-16 h-auto 2xl:max-w-7xl w-full mx-auto bg-white50"
+	>
 		<!-- 65.5px is the height of Pattern Orange/2  -->
 		<div class="  w-full">
 			<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 w-fit mb-8">
@@ -32,7 +34,7 @@
 				</div>
 
 				<div
-					class=" shadow-lg rounded-lg overflow-hidden items-center flex bg-secondary aspect-video"
+					class="w-full h-auto shadow-lg rounded-lg overflow-hidden items-center flex bg-secondary !aspect-video"
 				>
 					<!-- <VideoPlayer {token} videoId={'gcc-912540da-026f-4283-93d7-ec13dc4f911f'} /> -->
 

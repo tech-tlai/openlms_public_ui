@@ -10,7 +10,7 @@
 		</div>
 
 		<!-- Content Section -->
-		<div class="flex flex-col px-8 md:px-16 py-12 md:py-20">
+		<div class="flex flex-col px-8 md:px-16 py-12 md:py-20 bg-white80 border border-b-gray-50">
 			<h1 class="uppercase-headers mb-6 text-left">
 				INFINITE LEARNING ENHANCED BY DIVERSE DIGITAL SOLUTIONS
 			</h1>

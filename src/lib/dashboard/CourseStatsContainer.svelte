@@ -47,12 +47,12 @@
 		},
 		{
 			key: 'state',
-			name:  $format('State'),
+			name: $format('State'),
 			width: '50%'
 		},
 		{
 			key: 'coursesCount',
-			name:$format('CoursesCount'),
+			name: $format('CoursesCount'),
 			width: '30%'
 		}
 	];
@@ -84,7 +84,7 @@
 
 <InsightsContainer {insightStats} />
 
-<div class=" mt-4 p-4 bg-white my-4 rounded">
+<div class=" mt-4 p-4 bg-white80 shadow-md my-4 rounded-lg">
 	<MapAndTableWrapper
 		stateID={stateIDCourses}
 		stateName={stateNameCourses}

@@ -13,10 +13,18 @@
 	<div class="  flex flex-col rounded-lg text-darkGray sm:flex-row sm:justify-between gap-8">
 		<div class="flex flex-col sm:w-3/4 gap-3">
 			<h1 class="uppercase-headers">
-				{$_('AboutRSETI')}
+				<!-- {$_('AboutRSETI')} -->
+				About Training Centers
 				<!-- <img src="/RSETI-text-decoration.svg" alt="RSETI-text-decoration" class="absolute right-0 top-0 -translate-y-1/2 translate-x-1/2"> -->
 			</h1>
-			<p class="text-sm mb-3 leading-loose">{$_('RsetiIntro')}</p>
+			<!-- <p class="text-sm mb-3 leading-loose">{$_('RsetiIntro')}</p> -->
+			<p class="text-sm mb-3 leading-loose">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+				labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+				laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+				voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+				cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
 		</div>
 		<div class="flex justify-center flex-shrink-0">
 			<img src="/rsetis.svg" alt="RSETI-info-graphic" class="w-56" />

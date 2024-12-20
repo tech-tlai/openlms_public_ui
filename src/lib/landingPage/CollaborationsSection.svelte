@@ -5,7 +5,7 @@
 	export let endorsedBy = $_('LandingPageCollaborationSectionTitle');
 </script>
 
-<div class="bg-white50">
+<div class="bg-white">
 	<div class=" px-4 lg:w-1/2 md:w-2/3 sm:mx-auto py-16 max-w-4xl">
 		<div class=" text-sm md:text-base text-center pb-2">
 			{endorsedBy}

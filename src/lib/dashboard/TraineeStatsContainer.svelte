@@ -13,7 +13,6 @@
 	import { format } from 'svelte-i18n';
 	import TraineeOnboardChartStateWise from '$lib/dashboard/TraineeOnboardChartStateWise.svelte';
 
-
 	export let historicalData;
 	export let lang;
 
@@ -91,7 +90,7 @@
 
 <InsightsContainer {insightStats} />
 
-<div class=" mt-4 p-4 bg-white my-4 rounded min-h-[500px]">
+<div class=" mt-4 p-4 bg-white80 my-4 rounded-lg shadow-md min-h-[500px] mb-6">
 	<MapAndTableWrapper
 		stateID={stateIDTrainee}
 		stateName={stateNameTrainee}
@@ -107,13 +106,13 @@
 	/>
 </div>
 
-<div class="mb-6">
+<div class="mb-6 rounded-lg shadow-md">
 	<CategoryComparisionCard {traineeStatsByCourseCategory} />
 </div>
-<div class="mb-6">
+<div class="mb-6 rounded-lg shadow-md">
 	<TraineeOnboardChart {traineesByCourse} {courseList} {lang} />
 </div>
-<div class="mb-6">
+<div class="mb-6 rounded-lg shadow-md">
 	<TraineeOnboardChartStateWise {traineesByState} {statesData} {lang} />
 </div>
 <!-- 

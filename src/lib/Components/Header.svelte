@@ -3,12 +3,13 @@
 	import { browser } from '$app/environment';
 	import { setCookie, getCookie } from '$lib/utils/helper.js';
 	import { _, locale } from 'svelte-i18n';
-	// import ReapLogo from '$lib/svgComponents/ReapLogo.svelte';
-	// import ReapLogoMobile from '$lib/svgComponents/ReapLogoMobile.svelte';
-	import ReapLogo from '$lib/svgComponents/LogoFull.svelte';
-	import ReapLogoMobile from '$lib/svgComponents/LogoHalf.svelte';
+
+	import LogoFull from '$lib/svgComponents/LogoFull.svelte';
+	import LogoHalf from '$lib/svgComponents/LogoHalf.svelte';
 	import MenuSmallScreen from '$lib/menuSmallScreenSizes/MenuSmallScreen.svelte';
 	import SelectInput from './SelectInput.svelte';
+	import LanguageIcon from '$lib/svgComponents/LanguageIcon.svelte';
+
 	export let lang = 'en';
 	export let displayLoginPopUp = false;
 	let dispatch = createEventDispatcher();
@@ -19,8 +20,8 @@
 	let languageSelected = 'English';
 
 	let languageOptionList = [
-		{ id: 1, name: 'English', value: 'en' },
-		{ id: 2, name: 'हिंदी', value: 'hi' }
+		{ id: 1, name: 'English', value: 'en' }
+		// { id: 2, name: 'हिंदी', value: 'hi' }
 	];
 
 	onMount(() => {
@@ -74,10 +75,10 @@
 		<a href="/">
 			<span class="sr-only">Reap Logo</span>
 			<h1 class="hidden sm:block">
-				<ReapLogo />
+				<LogoFull />
 			</h1>
 			<h1 class="sm:hidden">
-				<ReapLogoMobile />
+				<LogoHalf />
 			</h1>
 		</a>
 	</div>
@@ -92,8 +93,8 @@
 				<button on:click={handleDisplayLoginPopUp}>{loggedIn ? $_('Logout') : $_('Login')}</button>
 			</li>
 			<li class="p-1 flex items-center gap-1">
-				<img src="/language.svg" alt="language-select-icon" />
-
+				<!-- <img src="/language.svg" alt="language-select-icon" /> -->
+				<LanguageIcon fillColor={'#2E5ED4'} />
 				<SelectInput
 					showFieldName={false}
 					bind:itemSelected={languageSelected}

@@ -76,11 +76,20 @@
 				return;
 			}
 
-			await loadScript('https://www.youtube.com/iframe_api');
+			if (typeof YT === 'undefined') {
+				console.log('YT is UNDEFINED');
+				// Load the YouTube API script if it's not already loaded
+				await loadScript('https://www.youtube.com/iframe_api');
+
+				// Wait for the API to be ready
+				await new Promise((resolve) => {
+					window.onYouTubeIframeAPIReady = resolve;
+				});
+			}
+			// await loadScript('https://www.youtube.com/iframe_api');
 			scriptLoaded = true;
 
 			try {
-				console.log('b4 interval');
 				const interval = setInterval(async () => {
 					if (typeof YT != 'undefined') {
 						console.log('videoId B4', videoId);
