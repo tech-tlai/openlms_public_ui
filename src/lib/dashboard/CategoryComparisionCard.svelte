@@ -4,7 +4,6 @@
 	import { monthNames } from '$lib/data.js';
 	import { format } from 'svelte-i18n';
 
-
 	export let traineeStatsByCourseCategory = { data: [], status: 200, error: null };
 
 	let error = null;
@@ -74,7 +73,7 @@
 
 	let chartOptions = {
 		responsive: true,
-    	maintainAspectRatio: false,
+		maintainAspectRatio: false,
 		scales: {
 			x: {
 				title: {
@@ -82,49 +81,50 @@
 					text: $format('Year'),
 					color: '#143164',
 					font: () => ({
-                    size: window.matchMedia('(max-width: 768px)').matches ? 10 : 12,
-                    weight: 'bold',
-                    lineHeight: 1.2
-                }),
-				padding: () => (window.matchMedia('(max-width: 768px)').matches ? 
-                { top: 5, left: 0, right: 0, bottom: 0 } : 
-                { top: 20, left: 0, right: 0, bottom: 0 })
+						size: window.matchMedia('(max-width: 768px)').matches ? 10 : 12,
+						weight: 'bold',
+						lineHeight: 1.2
+					}),
+					padding: () =>
+						window.matchMedia('(max-width: 768px)').matches
+							? { top: 5, left: 0, right: 0, bottom: 0 }
+							: { top: 20, left: 0, right: 0, bottom: 0 }
 				}
 			},
 			y: {
-    beginAtZero: true,
-    title: {
-        display: true,
-        text: $format('NoOfTraineesEnrolled'),
-        color: '#143164',
-        font: () => ({
-            size: window.matchMedia('(max-width: 768px)').matches ? 10 : 12,
-            weight: 'bold',
-            lineHeight: 1.2
-        }),
-		padding: () => (window.matchMedia('(max-width: 768px)').matches ? 
-                { top: 0, left: 0, right: 0, bottom: 5 } : 
-                { top: 0, left: 0, right: 0, bottom: 20 })
-    },
-    grid: {
-        display: false
-    },
-    ticks: {
-        callback: function(value) {
-            // Abbreviate numbers for smaller screens
-            if (window.matchMedia('(max-width: 768px)').matches) {
-                return value >= 1000 ? (value / 1000) + 'k' : value;
-            }
-            // Default formatting for larger screens
-            return value.toLocaleString();
-        },
-        font: {
-            size: window.matchMedia('(max-width: 768px)').matches ? 10 : 12
-        },
-        color: '#143164'
-    },
-}
-
+				beginAtZero: true,
+				title: {
+					display: true,
+					text: $format('NoOfTraineesEnrolled'),
+					color: '#143164',
+					font: () => ({
+						size: window.matchMedia('(max-width: 768px)').matches ? 10 : 12,
+						weight: 'bold',
+						lineHeight: 1.2
+					}),
+					padding: () =>
+						window.matchMedia('(max-width: 768px)').matches
+							? { top: 0, left: 0, right: 0, bottom: 5 }
+							: { top: 0, left: 0, right: 0, bottom: 20 }
+				},
+				grid: {
+					display: false
+				},
+				ticks: {
+					callback: function (value) {
+						// Abbreviate numbers for smaller screens
+						if (window.matchMedia('(max-width: 768px)').matches) {
+							return value >= 1000 ? value / 1000 + 'k' : value;
+						}
+						// Default formatting for larger screens
+						return value.toLocaleString();
+					},
+					font: {
+						size: window.matchMedia('(max-width: 768px)').matches ? 10 : 12
+					},
+					color: '#143164'
+				}
+			}
 		},
 		plugins: {
 			legend: {
@@ -135,10 +135,10 @@
 					usePointStyle: true,
 					pointStyle: 'rect',
 					font: () => ({
-                    size: window.matchMedia('(max-width: 768px)').matches ? 10 : 10,
-                    weight: 'semibold',
-                    lineHeight: 1.2
-                }),
+						size: window.matchMedia('(max-width: 768px)').matches ? 10 : 10,
+						weight: 'semibold',
+						lineHeight: 1.2
+					})
 				}
 			}
 		}
@@ -147,9 +147,11 @@
 	let chartPlugins = {};
 </script>
 
-<div class="bg-white w-full flex flex-col py-4 md:py-8 px-4 md:px-16 rounded-lg">
+<div class="bg-white80 w-full flex flex-col py-4 md:py-8 px-4 md:px-16 rounded-lg">
 	<div class="flex justify-between items-center">
-		<h1 class="text-base font-bold text-primary">{$format('TraineeOnboardTrendAllCourseCategories')}</h1>
+		<h1 class="text-base font-bold text-primary">
+			{$format('TraineeOnboardTrendAllCourseCategories')}
+		</h1>
 	</div>
 
 	{#if !error}

@@ -107,3 +107,16 @@ export const formatDateMMMYYYY = (date) => {
 	const d = new Date(date);
 	return `${monthNames[d.getMonth()]}-${d.getFullYear()}`;
 };
+
+export function extractYouTubeVideoId(url) {
+	// Regular expression to match YouTube video URLs in various formats
+	const youtubeRegex =
+		/^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=)|youtu\.be\/)([^#&?]*).*/;
+	const match = url?.match(youtubeRegex);
+
+	if (match && match[1]) {
+		return match[1];
+	} else {
+		return null; // Or handle the error case as needed
+	}
+}

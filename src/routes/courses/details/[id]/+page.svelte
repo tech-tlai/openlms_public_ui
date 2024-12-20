@@ -12,8 +12,8 @@
 	let params = $page.params;
 </script>
 
+<AboutCourse {params} {route} {courseDetails} {courseStats} />
 <div class="lg:mx-[92px] mx-4 my-8 mt-0 lg:mb-9 lg:mt-0">
-	<AboutCourse {params} {route} {courseDetails} {courseStats} />
 	<div class="mt-4">
 		<CourseSection
 			{params}

@@ -8,8 +8,6 @@
 	export let selectedLanguage = 'en';
 	export let highlight;
 
-	$:console.log('video', video)
-
 	let isLoading = false;
 </script>
 
@@ -33,7 +31,7 @@
 					class=" w-1/3 rounded-md rounded-r-none object-cover"
 				/> -->
 				<img
-					src={video?.thumbnail ?video?.thumbnail:'/image-preview-icon.jpg'}
+					src={video?.thumbnail ? video?.thumbnail : '/image-preview-icon.jpg'}
 					alt="thumbnail of the course"
 					class="w-1/3 rounded-md rounded-r-none object-cover"
 					on:error={(event) => (event.target.src = '/image-preview-icon.jpg')}

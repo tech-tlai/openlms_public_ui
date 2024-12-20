@@ -2,8 +2,8 @@
 	import LineDrawing from '$lib/landingPage/LineDrawing.svelte';
 	import InputField from '$lib/Components/InputField.svelte';
 	import GoogleMatrialIcon from '$lib/Components/GoogleMatrialIcon.svelte';
-	import ReapLogo from '$lib/svgComponents/ReapLogo.svelte';
-	import ReapLogoMobile from '$lib/svgComponents/ReapLogoMobile.svelte';
+	import LogoFull from '$lib/svgComponents/LogoFull.svelte';
+	import LogoHalf from '$lib/svgComponents/LogoHalf.svelte';
 	import CheckBox from '$lib/Components/CheckBox.svelte';
 	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
@@ -18,7 +18,7 @@
 	let error = null;
 	let formLoginDetails = form?.loginDetails;
 
-	let rsetiFilterOptionList = [{ name:  $format('SelectRSETI'), uuid: 0 }, ...centersData];
+	let rsetiFilterOptionList = [{ name: $format('SelectRSETI'), uuid: 0 }, ...centersData];
 
 	let rsetiFilterValue = rsetiFilterOptionList[0]?.name;
 
@@ -87,11 +87,15 @@
 			<div class="sm:w-1/2 bp-900px:flex flex-col bg-white80 relative hidden pb-4 rounded-l-lg">
 				<div class="sm:px-12 flex flex-col flex-1 justify-center">
 					<h2 class="text-lg font-bold text-primary mb-4 relative">
-						<img
+						<span class="h-8 inline-block w-fit">
+							<LogoHalf addClass="h-8" />
+						</span>
+						<!-- <img
 							src="/RSETI-text-decoration.svg"
 							alt=""
 							class="rotate-[270deg] absolute -top-7 -left-7"
-						/>
+						/> -->
+
 						{$format('LoginHeading')}
 					</h2>
 
@@ -123,7 +127,7 @@
 				<ReapLogoMobile />
 			</h2>-->
 					<h2 class="bp-900px:hidden">
-						<ReapLogoMobile />
+						<LogoHalf />
 					</h2>
 					<h2 class="text-base text-center text-primary font-semibold mt-4">{$format('Login')}</h2>
 				</div>

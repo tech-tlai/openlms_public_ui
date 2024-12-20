@@ -40,7 +40,7 @@
 				statesData: stateData,
 				overallStats
 			},
-			lang:lang,
+			lang: lang,
 			icon: '/traineesEnrolledIcon.svg'
 		},
 		{
@@ -49,9 +49,9 @@
 			clicked: false,
 			textDispaly: $format('CourseStats'),
 			historicalData: { coursesByState, overallStats },
-			lang:lang,
+			lang: lang,
 			icon: '/coursesIcon.svg'
-		},
+		}
 		// {
 		// 	text: 'Assessment',
 		// 	component: Assessment,
@@ -89,7 +89,7 @@
 				textDispaly: $format('CourseStats'),
 				historicalData: { coursesByState, overallStats },
 				icon: '/coursesIcon.svg'
-			},
+			}
 			// {
 			// 	text: 'Assessment',
 			// 	component: Assessment,
@@ -118,11 +118,8 @@
 	}
 </script>
 
+<AboutDashboard {params} {route} />
 <div class="lg:mx-[92px] mx-4 my-8 mt-0 lg:mb-9 lg:mt-0">
-	<div class="">
-		<AboutDashboard {params} {route} />
-	</div>
-
 	<div class="mb-4 sm:mb-6">
 		<Tabs bind:tabs on:handleActiveTab={handleActiveTab} {activeTabText} />
 	</div>

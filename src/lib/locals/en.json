@@ -7,7 +7,7 @@
 	"LandingPageAboutTitle": "Credible courses. Incredible track record. ",
 	"LandingPageAboutContent": "REAP is a Government of India initiative designed to enable quality skill development accessible to every Indian. This online platform offers courses and resources to empower individuals to take charge of their careers and launch their own businesses.",
 	"LandingPageLifeCycleSectionTitle": "Invest in yourself and REAP the rewards",
-	"LandingPageLifeCycleSectionSubtitle": "Upskill , Reskill and Transform your careers with Government of India approved courses",
+	"LandingPageLifeCycleSectionSubtitle": "Upskill , Reskill and Transform your careers with certified approved courses",
 	"LandingPageTestimonailSectionTitle": "Hear from our alumni",
 	"FooterTitle": "@RSETI All Rights Reserved",
 	"CoursesOffered": "Courses Offered",
@@ -160,6 +160,5 @@
 	"NoVideosFound": "No videos found",
 	"NoTCFound": "No training centers found",
 	"NoStateFound": "No state found",
-  "SearchByVideoTitle":"Search by video title"
-
+	"SearchByVideoTitle": "Search by video title"
 }

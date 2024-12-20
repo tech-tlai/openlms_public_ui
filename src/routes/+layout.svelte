@@ -27,7 +27,7 @@
 
 <!-- Componet to render when loading state is true -->
 
-<div class="bg-white">
+<div class="">
 	{#if loading}
 		<WormLoader wormColor="#2E5ED4" />
 	{/if}

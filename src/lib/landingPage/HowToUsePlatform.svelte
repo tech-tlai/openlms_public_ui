@@ -8,7 +8,7 @@
 </script>
 
 <div
-	class="min-h-screen bg-white px-4 sm:pb-8 md:px-16 md:pb-16 py-12 lg:px-12 h-auto 2xl:max-w-7xl w-full mx-auto"
+	class="min-h-screen bg-white px-4 sm:pb-8 sm:px-6 md:pb-16 py-12 lg:px-12 h-auto 2xl:max-w-7xl w-full mx-auto"
 >
 	<div class=" mx-auto">
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -43,7 +43,7 @@
 				<img
 					src="/graduated_students.svg?height=500&width=500"
 					alt="Graduates celebrating success"
-					class="relative z-10 w-full h-auto"
+					class="relative z-10 w-full max-h-[450px] object-contain"
 				/>
 			</div>
 		</div>

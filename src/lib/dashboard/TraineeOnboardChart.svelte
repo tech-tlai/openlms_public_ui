@@ -4,13 +4,11 @@
 	import LineChart from '$lib/Components/LineChart.svelte';
 	import ErrorComponent from '$lib/Components/ErrorComponent.svelte';
 	import { format } from 'svelte-i18n';
-    import Filter from '$lib/Components/Filter.svelte';
-
-
+	import Filter from '$lib/Components/Filter.svelte';
 
 	export let traineesByCourse = []; // Incoming data in the specified format
 	export let courseList = []; // Course list
-	export let lang ='en'
+	export let lang = 'en';
 
 	let selectedCourse = 'All'; // Default selection
 	let labels = [];
@@ -34,7 +32,7 @@
 
 	let chartOptions = {
 		responsive: true,
-    	maintainAspectRatio: false,
+		maintainAspectRatio: false,
 		scales: {
 			x: {
 				title: {
@@ -42,13 +40,14 @@
 					text: $format('Month'),
 					color: '#143164',
 					font: () => ({
-                    size: window.matchMedia('(max-width: 768px)').matches ? 10 : 12,
-                    weight: 'bold',
-                    lineHeight: 1.2
-                }),
-				padding: () => (window.matchMedia('(max-width: 768px)').matches ? 
-                { top: 5, left: 0, right: 0, bottom: 0 } : 
-                { top: 20, left: 0, right: 0, bottom: 0 })
+						size: window.matchMedia('(max-width: 768px)').matches ? 10 : 12,
+						weight: 'bold',
+						lineHeight: 1.2
+					}),
+					padding: () =>
+						window.matchMedia('(max-width: 768px)').matches
+							? { top: 5, left: 0, right: 0, bottom: 0 }
+							: { top: 20, left: 0, right: 0, bottom: 0 }
 				}
 			},
 			y: {
@@ -58,32 +57,32 @@
 					text: $format('NoOfTraineesRegistered'),
 					color: '#143164',
 					font: () => ({
-            size: window.matchMedia('(max-width: 768px)').matches ? 10 : 12,
-            weight: 'bold',
-            lineHeight: 1.2
-        }),
-		padding: () => (window.matchMedia('(max-width: 768px)').matches ? 
-                { top: 0, left: 0, right: 0, bottom: 5 } : 
-                { top: 0, left: 0, right: 0, bottom: 20 })
+						size: window.matchMedia('(max-width: 768px)').matches ? 10 : 12,
+						weight: 'bold',
+						lineHeight: 1.2
+					}),
+					padding: () =>
+						window.matchMedia('(max-width: 768px)').matches
+							? { top: 0, left: 0, right: 0, bottom: 5 }
+							: { top: 0, left: 0, right: 0, bottom: 20 }
 				},
 				grid: {
 					display: false
 				},
 				ticks: {
-        callback: function(value) {
-            // Abbreviate numbers for smaller screens
-            if (window.matchMedia('(max-width: 768px)').matches) {
-                return value >= 1000 ? (value / 1000) + 'k' : value;
-            }
-            // Default formatting for larger screens
-            return value.toLocaleString();
-        },
-        font: {
-            size: window.matchMedia('(max-width: 768px)').matches ? 10 : 12
-        },
-        color: '#143164'
-    },
-				
+					callback: function (value) {
+						// Abbreviate numbers for smaller screens
+						if (window.matchMedia('(max-width: 768px)').matches) {
+							return value >= 1000 ? value / 1000 + 'k' : value;
+						}
+						// Default formatting for larger screens
+						return value.toLocaleString();
+					},
+					font: {
+						size: window.matchMedia('(max-width: 768px)').matches ? 10 : 12
+					},
+					color: '#143164'
+				}
 			}
 		},
 		plugins: {
@@ -160,21 +159,21 @@
 	];
 </script>
 
-<div class="bg-white w-full flex flex-col py-4 md:py-8 px-4 md:px-16 rounded-lg">
+<div class="bg-white80 w-full flex flex-col py-4 md:py-8 px-4 md:px-16 rounded-lg">
 	<div class="flex flex-col md:flex-row justify-between gap-2 md:gap-0">
 		<div>
 			<h3 class="text-base font-bold text-primary">{$format('TraineesOnboardTrendCourseLevel')}</h3>
 		</div>
 		<div class="flex gap-4 items-start md:items-center w-40 md:w-48">
 			<Filter
-			optionList={courseOptions}
-			optionListConfigObject={{ optionNameKey: 'name', optionIdKey: 'id' }}
-			itemSelected={courseOptions[0].name}
-			on:filterItemSelected={(e) => {
-				error = null;
-				updateChart(e.detail.id);
-			}}
-		/>
+				optionList={courseOptions}
+				optionListConfigObject={{ optionNameKey: 'name', optionIdKey: 'id' }}
+				itemSelected={courseOptions[0].name}
+				on:filterItemSelected={(e) => {
+					error = null;
+					updateChart(e.detail.id);
+				}}
+			/>
 		</div>
 	</div>
 	{#if !error}
