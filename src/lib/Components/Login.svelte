@@ -18,7 +18,7 @@
 	let error = null;
 	let formLoginDetails = form?.loginDetails;
 
-	let rsetiFilterOptionList = [{ name: $format('SelectRSETI'), uuid: 0 }, ...centersData];
+	let rsetiFilterOptionList = [{ name: 'Select Training Center', uuid: 0 }, ...centersData];
 
 	let rsetiFilterValue = rsetiFilterOptionList[0]?.name;
 
@@ -33,7 +33,7 @@
 		// rememberMe: formLoginDetails?.rememberMe ?? false
 	};
 
-	$: if (rsetiFilterValue && rsetiFilterValue !== $format('SelectRSETI')) {
+	$: if (rsetiFilterValue && rsetiFilterValue !== 'Select Training Center') {
 		dropdownError = '';
 		error = '';
 	}
@@ -66,7 +66,7 @@
 	}
 
 	function validateDropdown(value) {
-		return value && value !== $format('SelectRSETI');
+		return value && value !== 'Select Training Center';
 	}
 	function handleDisplayLoginPopUp() {
 		displayLoginPopUp = !displayLoginPopUp;

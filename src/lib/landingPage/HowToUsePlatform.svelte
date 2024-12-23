@@ -17,7 +17,7 @@
 				<h1 class="uppercase-headers">INVEST IN YOURSELF AND REAP THE REWARDS</h1>
 
 				<p class="text-darkGray text-base">
-					Upskill, Reskill and Transform your careers with Government of India approved courses
+					Upskill, Reskill and Transform your careers with certified courses
 				</p>
 
 				<div class="space-y-6">

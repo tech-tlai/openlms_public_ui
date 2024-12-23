@@ -53,6 +53,44 @@
 		}, 1000);
 	}
 
+	function loadPlayer() {
+		try {
+			const outerContainer = document.getElementById('custom-player');
+			if (outerContainer) {
+				outerContainer.innerHTML = '';
+				// const targetDiv = outerContainer.querySelectorAll('.videoContainer');
+				// if (targetDiv?.length > 0) {
+				// 	console.log('targetDiv', targetDiv);
+				// 	targetDiv.forEach((item) => item.remove());
+				// }
+				const newDiv = document.createElement('div');
+				newDiv.setAttribute('id', divId);
+				outerContainer.prepend(newDiv);
+			}
+			const playerDiv = document.getElementById(divId);
+			const playerWidth = playerDiv?.offsetWidth;
+			const playerHeight = (playerWidth * 9) / 16;
+
+			player = new YT.Player(divId, {
+				height: playerHeight,
+				width: playerWidth,
+				videoId,
+				events: {
+					onReady: playerIsReady,
+					onStateChange: playerStateChange
+				}
+			});
+			// throw error(404, "no found")
+			// player = kPoint.Player(document.getElementById('player-container'), {
+			// 	kvideoId: videoId,
+			// 	videoHost: 'test-nabard.kpoint.com',
+			// 	params: { xt: token }
+			// });
+		} catch (err) {
+			console.log('error is', err);
+		}
+	}
+
 	export function play() {
 		if (player) {
 			player.playVideo();
@@ -68,13 +106,14 @@
 			dispatch('playerLoaded', false);
 			videoLoaded = false;
 			if (!videoId) {
-				if (videoId === null) {
-					videoLoaded = true;
-					videoLoadError = true;
-					dispatch('error', 'Invalid Url');
-				}
+				// if (videoId === null) {
+				// 	videoLoaded = true;
+				// 	videoLoadError = true;
+				// 	dispatch('error', 'Invalid Url');
+				// }
 				return;
 			}
+			// videoLoadError = false;
 
 			if (typeof YT === 'undefined') {
 				console.log('YT is UNDEFINED');
@@ -102,19 +141,20 @@
 						// });
 
 						try {
-							const playerDiv = document.getElementById(divId);
-							const playerWidth = playerDiv.offsetWidth;
-							const playerHeight = (playerWidth * 9) / 16;
+							// const playerDiv = document.getElementById(divId);
+							// const playerWidth = playerDiv.offsetWidth;
+							// const playerHeight = (playerWidth * 9) / 16;
 
-							player = new YT.Player(divId, {
-								height: playerHeight,
-								width: playerWidth,
-								videoId,
-								events: {
-									onReady: playerIsReady,
-									onStateChange: playerStateChange
-								}
-							});
+							// player = new YT.Player(divId, {
+							// 	height: playerHeight,
+							// 	width: playerWidth,
+							// 	videoId,
+							// 	events: {
+							// 		onReady: playerIsReady,
+							// 		onStateChange: playerStateChange
+							// 	}
+							// });
+							loadPlayer();
 							console.log('player', player);
 						} catch (err) {
 							console.log('yt player error', err);
@@ -146,7 +186,7 @@
 	}
 </script>
 
-<div class="w-full relative shadow-sm">
+<div class="w-full relative shadow-sm" id="custom-player">
 	{#if !videoLoaded}
 		<div class="absolute top-0 left-0 w-full bg-gray-50 animate-pulse z-40 h-[95%]"></div>
 		<div
@@ -160,7 +200,7 @@
 			<h2 class="text-primary font-medium">Oops.Something went wrong! Failed to load video.</h2>
 		</div>
 	{/if}
-	<div id={divId} class="w-full aspect-video" />
+	<div id={divId} class="w-full aspect-video videoContainer" />
 </div>
 
 <style>
