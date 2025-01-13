@@ -10,11 +10,42 @@ node_modules
 .DS_Store
 Thumbs.db
 
+
 # Env
 .env
 .env.*
 !.env.example
 !.env.test
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+# Output of 'npm pack'
+*.tgz
+
+# Output
+.output
+.vercel
+/.svelte-kit
+/build
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Optional eslint cache
+.eslintcache
+
+
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
 
 # Vite
 vite.config.js.timestamp-*
