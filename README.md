@@ -4,11 +4,12 @@ Edureach is a free and open-source Learning Management System (LMS) designed to 
 
 ---
 
-##Features
+## Features
 
-- Course Creation & Management
+- Content viewership
+- Multi-lingual support for web and video content
 - Learner Engagement
-- Multi-lingual support
+- Assessments and more
 
 ---
 
@@ -17,18 +18,33 @@ Edureach is a free and open-source Learning Management System (LMS) designed to 
 1. Clone the repo: `git clone https://github.com/tech-tlai/openlms_public_ui.git`
 2. Navigate to the project directory: `cd openlms_public_ui`
 3. Install dependencies: `npm install`
-4. Start a development server:
+
+## Usage
+
+[![Node.js Version](https://img.shields.io/badge/node.js-%3E%3D20.5.0-blue)](https://nodejs.org/en/)
+
+[![npm Version](https://img.shields.io/badge/npm-%3E%3D10.7.0-green)](https://www.npmjs.com/)
+
+Start a development server:
 
 ```bash
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Deployment
+## Building
 
-This project is built using [Svelekit](https://svelte.dev/docs/kit/introduction) and deployed using [AWS Amplify](https://aws.amazon.com/amplify/)
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment. We recommend [AWS Amplify](https://aws.amazon.com/amplify/).
+
+## Deployment
 
 ### Steps to enable AWS Amplify Adapter for a SvelteKit Project
 
@@ -45,9 +61,6 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 /\*_ @type {import('@sveltejs/kit').Config} _/
 const config = {
 kit: {
-// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
-// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 adapter: adapter()
 },
 preprocess: vitePreprocess()
