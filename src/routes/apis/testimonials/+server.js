@@ -1,0 +1,27 @@
+export async function GET({ request }) {
+	try {
+		let queryparams = request.url.split('?');
+		let endPoint = 'http://read-admin-api-dev.ap-south-1.elasticbeanstalk.com/apis/v1/traineetestimonials';
+
+		if (queryparams?.length > 1) {
+			endPoint += '?' + queryparams[1];
+		}
+		const res = await fetch(endPoint);
+		if (!res.ok || res.status !== 200) {
+			return new Response(res.body, { status: res.status, headers: res.headers });
+		}
+		const data = await res.json();
+		if (data?.length===0 || Object.keys(data)?.length ===0) {
+			throw new Error('No Data Found');
+		}
+
+		return new Response(JSON.stringify(data), {
+			status: res.status,
+			headers: { 'Content-Type': 'application/json' }
+		});
+	} catch (error) {
+		return new Response(JSON.stringify({ error: error.message }), {
+			headers: { 'Content-Type': 'application/json' }
+		});
+	}
+}

@@ -1,3 +1,4 @@
+
 # EduReach LMS platform
 
 Edureach is a free and open-source Learning Management System (LMS) designed to facilitate flexible and engaging learning experiences
@@ -87,3 +88,4 @@ paths: - node_modules/**/\*
 `
 
 Also read - [Deploy a SvelteKit app to Amplify Hosting](https://docs.aws.amazon.com/amplify/latest/userguide/get-started-sveltekit.html)
+
