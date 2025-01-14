@@ -10,7 +10,6 @@
 	import VideoPodSkeleton from '$lib/VideoPodSkeleton.svelte';
 	import SelectInput from '$lib/Components/SelectInput.svelte';
 	import { format } from 'svelte-i18n';
-	import VideoPlayer from '$lib/Components/VideoPlayer.svelte';
 	import YoutubePlayer from '$lib/Components/YoutubePlayer.svelte';
 	import { page } from '$app/stores';
 	import { browser } from '$app/environment';

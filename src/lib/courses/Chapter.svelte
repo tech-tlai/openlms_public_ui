@@ -59,7 +59,7 @@
 		{$format('Chapter')}
 		{index + 1} :
 		<span class="sm:font-semibold font-normal">
-			{chapterData?.title}
+			{chapterData?.title ?? '-'}
 		</span>
 	</h3>
 
