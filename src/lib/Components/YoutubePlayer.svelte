@@ -4,7 +4,7 @@
 	import { browser } from '$app/environment';
 
 	export let videoId;
-	let videoLoadError = false;
+	// let videoLoadError = false;
 	let player;
 	let mounted = false;
 	let videoLoaded = false;
@@ -70,7 +70,7 @@
 			if (!videoId) {
 				if (videoId === null) {
 					videoLoaded = true;
-					videoLoadError = true;
+					// videoLoadError = true;
 					dispatch('error', 'Invalid Url');
 				}
 				return;
@@ -153,13 +153,13 @@
 			class="w-20 h-20 border-8 border-gray-30 border-t-blue-100 z-50 absolute top-1/2 left-1/2 rounded-full -translate-x-1/2 -translate-y-1/2 round-loader origin-[0%_0%]"
 		></div>
 	{/if}
-	{#if videoLoadError}
+	<!-- {#if videoLoadError}
 		<div
 			class="absolute top-0 left-0 w-full bg-gray-50 z-40 h-[95%] flex items-center justify-center"
 		>
 			<h2 class="text-primary font-medium">Oops.Something went wrong! Failed to load video.</h2>
 		</div>
-	{/if}
+	{/if} -->
 	<div id={divId} class="w-full aspect-video" />
 </div>
 

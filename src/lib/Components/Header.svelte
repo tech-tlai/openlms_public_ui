@@ -5,6 +5,7 @@
 	import { _, locale } from 'svelte-i18n';
 
 	import LogoFull from '$lib/svgComponents/LogoFull.svelte';
+	import EduReachLogo from '$lib/svgComponents/EduReach-Logo.svelte';
 	import LogoHalf from '$lib/svgComponents/LogoHalf.svelte';
 	import MenuSmallScreen from '$lib/menuSmallScreenSizes/MenuSmallScreen.svelte';
 	import SelectInput from './SelectInput.svelte';

@@ -2,7 +2,6 @@
 	import GeneralStats from '$lib/landingPage/GeneralStats.svelte';
 	import CommonLayoutPattern from '$lib/Components/CommonLayoutPattern.svelte';
 	import { _ } from 'svelte-i18n';
-	import VideoPlayer from '$lib/Components/VideoPlayer.svelte';
 	import YoutubePlayer from '$lib/Components/YoutubePlayer.svelte';
 
 	export let generalStats = [];
@@ -36,8 +35,6 @@
 				<div
 					class="w-full h-auto shadow-lg rounded-lg overflow-hidden items-center flex bg-secondary !aspect-video"
 				>
-					<!-- <VideoPlayer {token} videoId={'gcc-912540da-026f-4283-93d7-ec13dc4f911f'} /> -->
-
 					<YoutubePlayer videoId={'NPQUVaiEajA'} />
 				</div>
 			</div>

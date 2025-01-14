@@ -8,7 +8,6 @@
 	import BreadCrumbs from '$lib/breadCrumbs/BreadCrumbs.svelte';
 	import GeneralStats from '$lib/landingPage/GeneralStats.svelte';
 	import { _ } from 'svelte-i18n';
-	import VideoPlayer from '$lib/Components/VideoPlayer.svelte';
 	import YoutubePlayer from '$lib/Components/YoutubePlayer.svelte';
 	import { page } from '$app/stores';
 	import { categoryList as courseCategoryList } from '$lib/temp.admin.js';
