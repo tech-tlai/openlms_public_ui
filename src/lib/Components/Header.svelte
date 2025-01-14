@@ -6,6 +6,7 @@
 
 	import LogoFull from '$lib/svgComponents/LogoFull.svelte';
 	import EduReachLogo from '$lib/svgComponents/EduReach-Logo.svelte';
+	import EduReachHalfLogo from '$lib/svgComponents/EduReach-half-Logo.svelte';
 	import LogoHalf from '$lib/svgComponents/LogoHalf.svelte';
 	import MenuSmallScreen from '$lib/menuSmallScreenSizes/MenuSmallScreen.svelte';
 	import SelectInput from './SelectInput.svelte';
@@ -75,11 +76,11 @@
 	<div on:click={handleLogoClick} on:keypress={handleLogoClick} role="button" tabindex="0">
 		<a href="/">
 			<span class="sr-only">Reap Logo</span>
-			<h1 class="hidden sm:block">
-				<LogoFull />
+			<h1 class="hidden sm:block h-12">
+				<EduReachLogo />
 			</h1>
 			<h1 class="sm:hidden">
-				<LogoHalf />
+				<EduReachHalfLogo />
 			</h1>
 		</a>
 	</div>
