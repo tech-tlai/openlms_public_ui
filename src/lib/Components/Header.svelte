@@ -79,9 +79,6 @@
 			<h1 class="hidden sm:block h-12">
 				<EduReachLogo />
 			</h1>
-			<h1 class="sm:hidden">
-				<EduReachHalfLogo />
-			</h1>
 		</a>
 	</div>
 	<!-- Desktop Header Menu Items -->

@@ -9,6 +9,7 @@
 	import { goto } from '$app/navigation';
 	import Filter from '$lib/Components/Filter.svelte';
 	import { format } from 'svelte-i18n';
+	import EduReachHalfLogo from '$lib/svgComponents/EduReach-half-Logo.svelte';
 
 	export let centersData;
 	export let form;
@@ -88,7 +89,7 @@
 				<div class="sm:px-12 flex flex-col flex-1 justify-center">
 					<h2 class="text-lg font-bold text-primary mb-4 relative">
 						<span class="h-8 inline-block w-fit">
-							<LogoHalf addClass="h-8" />
+							<EduReachHalfLogo />
 						</span>
 						<!-- <img
 							src="/RSETI-text-decoration.svg"
@@ -121,15 +122,17 @@
 				<button class="absolute right-5 top-5" on:click={handleDisplayLoginPopUp}>
 					<GoogleMatrialIcon iconName="cancel" addClass="text-primary" />
 				</button>
-				<div class="mb-4">
+				<div class="mb-4 flex flex-col items-center">
 					<!-- <span class="sr-only">Reap Logo</span>
 			<h2 class="hidden sm:block">
 				<ReapLogoMobile />
 			</h2>-->
 					<h2 class="bp-900px:hidden">
-						<LogoHalf />
+						<EduReachHalfLogo />
 					</h2>
-					<h2 class="text-base text-center text-primary font-semibold mt-4">{$format('Login')}</h2>
+					<h2 class="text-base text-center text-primary font-semibold mt-4">
+						{$format('Login')}
+					</h2>
 				</div>
 
 				<form method="post" action="/" class="w-full" use:enhance={handleFormEnhance}>
