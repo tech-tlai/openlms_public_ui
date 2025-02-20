@@ -2,9 +2,10 @@ import '$lib/locals/i18n.js';
 
 export async function load({ locals, cookies }) {
 	const lang = locals.lang;
+	const userdetails = locals.user ? locals.user : {};
 	let session = {
 		language: lang || 'en',
-		user: { ...locals.user, name: cookies.get('name') }
+		user: { ...userdetails, name: cookies.get('name') }
 	};
 
 	return { session };
