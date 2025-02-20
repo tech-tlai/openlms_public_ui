@@ -5,7 +5,7 @@ export async function load({ locals, cookies }) {
 	const userdetails = locals.user ? locals.user : {};
 	let session = {
 		language: lang || 'en',
-		user: { ...userdetails, name: cookies.get('name') }
+		user: { ...userdetails, name: cookies.get('name'), userUuid: cookies.get('userUuid')  }
 	};
 
 	return { session };

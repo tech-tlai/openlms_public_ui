@@ -8,7 +8,7 @@
 	import EduReachLogo from '$lib/svgComponents/EduReach-Logo.svelte';
 	import EduReachHalfLogo from '$lib/svgComponents/EduReach-half-Logo.svelte';
 	import LogoHalf from '$lib/svgComponents/LogoHalf.svelte';
-	import MenuSmallScreen from '$lib/menuSmallScreenSizes/MenuSmallScreen.svelte';
+	import MenuSmallScreen from '$lib/Components/MenuSmallScreen.svelte';
 	import SelectInput from './SelectInput.svelte';
 	import LanguageIcon from '$lib/svgComponents/LanguageIcon.svelte';
 	import { user } from '/src/stores';

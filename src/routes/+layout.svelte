@@ -18,6 +18,7 @@
 
 	$: route = $page.url.pathname;
 	$: user.set(data?.user);
+	$: userInfo = data.user;
 	export let data;
 
 	onMount(() => {
