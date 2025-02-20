@@ -92,7 +92,7 @@
 						<p class="text-sm mb-4 md:mb-4 sm:mb-3 font-semibold">
 							{$_('CourseId')}:
 							<span class="capitalize">
-								{courseDetails?.courseCode ?? ''}
+								{courseDetails?.displayCourseCode ?? ''}
 							</span>
 						</p>
 					</div>

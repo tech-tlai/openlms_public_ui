@@ -112,15 +112,15 @@
 
 		let filteredData =
 			courseCode === 'All'
-				? traineesByCourse.data
-				: traineesByCourse.data?.filter((item) => item.course_code === courseCode);
+				? traineesByCourse?.data
+				: traineesByCourse?.data?.filter((item) => item?.course_code === courseCode);
 
 		if (filteredData?.length === 0) {
 			error = 'No data found for the selected course';
 		}
 		// Prepare chart data
 		const transformed = {};
-		filteredData.forEach(({ mnth, total_trainees }) => {
+		filteredData?.forEach(({ mnth, total_trainees }) => {
 			const monthName = monthNames[mnth - 1];
 			if (!transformed[monthName]) {
 				transformed[monthName] = 0;
@@ -155,7 +155,7 @@
 				id: course.courseCode,
 				name: course.translations.find((t) => t.languageCode === lang)?.title || course.courseCode
 			}))
-			.sort((a, b) => a.name.localeCompare(b.name))
+			.sort((a, b) => a?.name?.localeCompare(b.name))
 	];
 </script>
 

@@ -100,10 +100,6 @@
 					<DashboardIcon addClass="h-8 w-8 " slot="icon" />
 					<a href="/public-dashboard" class="block w-full h-full" slot="link">{$_('Dashboard')}</a>
 				</SideMenuItem>
-				<SideMenuItem id="test-page">
-					<DashboardIcon addClass="h-8 w-8 " slot="icon" />
-					<a href="/test-page" class="block w-full h-full" slot="link">Test Page</a>
-				</SideMenuItem>
 				<SideMenuItem addClass="w-full p-2" id="login">
 					<LoginIcon addClass="h-8 w-8 " slot="icon" />
 					<button href="#" class="block" on:click={handleDisplayLoginPopUp} slot="link"
