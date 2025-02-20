@@ -25,7 +25,6 @@
 
 	let rsetiFilterOptionList = [{ name: $format('SelectRSETI'), uuid: 0 }, ...centersData];
 
-	$:console.log('rsetiFilterOptionList', rsetiFilterOptionList)
 
 	let rsetiFilterValue = rsetiFilterOptionList[0]?.name;
 
@@ -69,7 +68,9 @@
 			}
 
 			if (result.type === 'success') {
-				user.set({ isAuthenticated: true });
+				const { data } = result;
+				const userName = data.user?.candidateName;
+				user.set({ isAuthenticated: true, name: userName });
 				displayLoginPopUp = false;
 			}
 			// handleDisplayLoginPopUp();

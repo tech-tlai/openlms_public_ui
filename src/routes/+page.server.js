@@ -74,11 +74,26 @@ export const actions = {
 					maxAge: 60 * 60 * 24
 				});
 
+				cookies.set('name', userDetails.candidateName, {
+					path: '/',
+					httpOnly: true,
+					sameSite: 'strict',
+					secure: process.env.NODE_ENV === 'production',
+					maxAge: 60 * 60 * 24
+				});
+				cookies.set('enrollId', userDetails.enrollId, {
+					path: '/',
+					httpOnly: true,
+					sameSite: 'strict',
+					secure: process.env.NODE_ENV === 'production',
+					maxAge: 60 * 60 * 24
+				});
+
 				return {
 					success: true,
 					message: 'Login successful!',
-					user: result.user, // Include user details if needed
-					authToken: result.accessToken
+					// authToken: result.accessToken,
+					user: userDetails
 				};
 			} else {
 				return fail(401, {

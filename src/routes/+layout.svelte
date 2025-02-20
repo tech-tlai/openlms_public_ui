@@ -22,7 +22,7 @@
 
 	onMount(() => {
 		if (route === '/') {
-			displayLoginPopUp = true;
+			displayLoginPopUp = !data?.user?.isAuthenticated
 		}
 	});
 </script>

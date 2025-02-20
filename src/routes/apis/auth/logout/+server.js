@@ -3,7 +3,6 @@ import { json } from '@sveltejs/kit';
 export async function POST({ cookies }) {
 	try {
 		cookies.getAll().forEach(({ name }) => {
-			console.log('cookies name', name);
 			cookies.delete(name, { path: '/' });
 		});
 

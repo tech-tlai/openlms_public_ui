@@ -18,11 +18,11 @@ export async function GET({ locals }) {
 
 		let rsetiData = [];
 		data.forEach((item) => {
-			if (item.translations.length > 0) {
-				const languageData = item.translations.find((langData) => langData.languageCode === lang);
-				const enData = item.translations.find((langData) => langData.languageCode === 'en');
+			if (item?.translations?.length > 0) {
+				const languageData = item?.translations?.find((langData) => langData?.languageCode === lang);
+				const enData = item?.translations?.find((langData) => langData?.languageCode === 'en');
 				if (languageData) {
-					rsetiData.push({
+					rsetiData?.push({
 						...item,
 						name: languageData.name,
 						address: languageData.address,

@@ -76,7 +76,6 @@ export async function load({ fetch, data }) {
 					}
 				}
 			}
-			console.log('centersDataJson', centersDataJson)
 			return { centersData: centersDataJson, allCentersMap: centerDataMap };
 		} catch (err) {
 			console.log('err in layout.js', err.message);
