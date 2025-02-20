@@ -17,6 +17,7 @@
 
 	let dropdownError = '';
 	let error = null;
+	let showPassword = false;
 	let formLoginDetails = form?.loginDetails;
 
 	let rsetiFilterOptionList = [{ name: $format('SelectRSETI'), uuid: 0 }, ...centersData];
@@ -78,6 +79,10 @@
 
 	function handleForgotPassword() {
 		error = $format('ForgotPinMessage');
+	}
+
+	function toggleVisibility() {
+		showPassword = !showPassword;
 	}
 </script>
 
@@ -143,20 +148,32 @@
 							bind:value={formObject.enrollmentId}
 							type="username"
 							name="enrollmentId"
-							required={true}
+							required={true}	
 						/>
 					</div>
 
 					<div class="mb-6">
 						<InputField
-							label={$format('UniquePin')}
-							placeholder={$format('EnterUniquePin')}
-							bind:value={formObject.uniqueId}
-							type="password"
-							name="password"
-							required={true}
-							autocomplete="password"
-						/>
+						label={$format('UniquePin')}
+						placeholder={$format('EnterUniquePin')}
+						type={showPassword ? 'text' : 'password'}
+						bind:value={formObject.uniqueId}
+						name="password"
+						required
+						autocomplete="password"	
+						><!-- Icon Slot -->
+						<button
+							type="button"
+							class="flex items-center justify-center text-gray-500 hover:text-gray-700 focus:outline-none"
+							on:click={toggleVisibility}
+						>
+							{#if showPassword}
+								<span class="material-icons text-lg">visibility</span>
+							{:else}
+								<span class="material-icons text-lg">visibility_off</span>
+							{/if}
+						</button>
+					</InputField>
 					</div>
 					<div class="mb-2">
 						<Filter
