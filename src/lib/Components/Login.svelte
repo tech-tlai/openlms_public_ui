@@ -11,6 +11,7 @@
 	import { format } from 'svelte-i18n';
 	import EduReachHalfLogo from '$lib/svgComponents/EduReach-half-Logo.svelte';
 	import { user } from '/src/stores';
+	import Spinner from '$lib/Components/Spinner.svelte';
 
 	export let centersData;
 	export let form;
@@ -20,6 +21,7 @@
 	let error = null;
 	let showPassword = false;
 	let formLoginDetails = form?.loginDetails;
+	let loggingIn = false;
 
 	let rsetiFilterOptionList = [{ name: $format('SelectRSETI'), uuid: 0 }, ...centersData];
 
@@ -51,6 +53,7 @@
 			cancel(); // Prevent form submission
 			return;
 		}
+		loggingIn = true;
 		formData.set('rseti', rsetiFilterValue);
 		return async ({ result, update }) => {
 			await result;
@@ -72,6 +75,7 @@
 			// handleDisplayLoginPopUp();
 			// goto(`/`);
 			// TODO handle form result validation and then navigate
+			loggingIn = false;
 		};
 	}
 
@@ -211,8 +215,11 @@
 						<p class="text-red-500 text-xs mb-2">* {error}</p>
 					{/if}
 					<button
-						class="w-full text-center py-2 text-white text-sm bg-primary rounded-md font-semibold hover:bg-primary-hover"
-						type="submit">{$format('Login')}</button
+						class="w-full flex items-center gap-2 justify-center text-center py-2 text-white text-sm bg-primary rounded-md font-semibold hover:bg-primary-hover"
+						type="submit">{$format('Login')}
+						{#if loggingIn}
+							<Spinner size={'20px'} borderWidth={'3px'} />
+						{/if}</button
 					>
 				</form>
 				<div class="flex flex-col sm:flex-row mb-6">
