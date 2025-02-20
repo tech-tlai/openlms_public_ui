@@ -10,6 +10,7 @@
 	import Filter from '$lib/Components/Filter.svelte';
 	import { format } from 'svelte-i18n';
 	import EduReachHalfLogo from '$lib/svgComponents/EduReach-half-Logo.svelte';
+	import { user } from '/src/stores';
 
 	export let centersData;
 	export let form;
@@ -21,6 +22,8 @@
 	let formLoginDetails = form?.loginDetails;
 
 	let rsetiFilterOptionList = [{ name: $format('SelectRSETI'), uuid: 0 }, ...centersData];
+
+	$:console.log('rsetiFilterOptionList', rsetiFilterOptionList)
 
 	let rsetiFilterValue = rsetiFilterOptionList[0]?.name;
 
@@ -52,7 +55,7 @@
 		return async ({ result, update }) => {
 			await result;
 
-			if (result?.error) {
+			if (result?.type === 'failure') {
 				if (result?.status === 500) {
 					error = $format('UnexpectedErrorMessage');
 				} else if (result?.status === 401) {
@@ -60,6 +63,11 @@
 				} else {
 					error = $format('UnexpectedErrorMessage'); // Handles unknown errors
 				}
+			}
+
+			if (result.type === 'success') {
+				user.set({ isAuthenticated: true });
+				displayLoginPopUp = false;
 			}
 			// handleDisplayLoginPopUp();
 			// goto(`/`);

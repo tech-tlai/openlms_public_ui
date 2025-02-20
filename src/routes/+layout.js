@@ -76,6 +76,7 @@ export async function load({ fetch, data }) {
 					}
 				}
 			}
+			console.log('centersDataJson', centersDataJson)
 			return { centersData: centersDataJson, allCentersMap: centerDataMap };
 		} catch (err) {
 			console.log('err in layout.js', err.message);
@@ -148,6 +149,7 @@ export async function load({ fetch, data }) {
 		...(await fetchCoursesDetails()),
 		...(await fetchCenters()),
 		...(await fetchStateList()),
-		lang: session?.language || 'en'
+		lang: session?.language || 'en',
+		user: session.user
 	};
 }

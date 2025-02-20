@@ -9,6 +9,7 @@
 	import { navigating } from '$app/stores';
 	import { onMount } from 'svelte';
 	import Login from '$lib/Components/Login.svelte';
+	import { user } from '/src/stores';
 
 	// varibale to track loading state
 	let loading = true;
@@ -16,6 +17,7 @@
 	$: loading = !!$navigating;
 
 	$: route = $page.url.pathname;
+	$: user.set(data?.user);
 	export let data;
 
 	onMount(() => {

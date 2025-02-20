@@ -11,6 +11,7 @@
 	import MenuSmallScreen from '$lib/menuSmallScreenSizes/MenuSmallScreen.svelte';
 	import SelectInput from './SelectInput.svelte';
 	import LanguageIcon from '$lib/svgComponents/LanguageIcon.svelte';
+	import { user } from '/src/stores';
 
 	export let lang = 'en';
 	export let displayLoginPopUp = false;
@@ -25,6 +26,10 @@
 		{ id: 1, name: 'English', value: 'en' }
 		// { id: 2, name: 'हिंदी', value: 'hi' }
 	];
+
+	$: user.subscribe((value) => {
+		loggedIn = value?.isAuthenticated ?? false;
+	});
 
 	onMount(() => {
 		setLangFromProps(lang);
@@ -65,8 +70,20 @@
 		}
 	}
 
+	async function logout() {
+		try {
+			const resp = await fetch('/apis/auth/logout', { method: 'POST' });
+			const logoutResp = await resp.json();
+			loggedIn = false;
+		} catch (err) {}
+	}
 	function handleDisplayLoginPopUp() {
-		displayLoginPopUp = !displayLoginPopUp;
+		if (!loggedIn) {
+			displayLoginPopUp = !displayLoginPopUp;
+		} else {
+			//logout
+			logout();
+		}
 	}
 </script>
 
@@ -103,7 +120,7 @@
 				/>
 			</li>
 		</ul>
-		{#if loggedIn}
+		<!-- {#if loggedIn}
 			<div class="p-2">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +137,7 @@
 					/>
 				</svg>
 			</div>
-		{/if}
+		{/if} -->
 	</div>
 
 	<!-- Mobile Header Button -->
