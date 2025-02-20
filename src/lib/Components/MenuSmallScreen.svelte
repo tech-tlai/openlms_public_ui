@@ -38,7 +38,8 @@
 		try {
 			const resp = await fetch('/apis/auth/logout', { method: 'POST' });
 			const logoutResp = await resp.json();
-			loggedIn = false;
+			// loggedIn = false;
+			user.set({ isAuthenticated: false });
 		} catch (err) {}
 	}
 	function handleDisplayLoginPopUp() {

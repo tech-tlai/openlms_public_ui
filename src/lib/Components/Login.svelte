@@ -70,7 +70,7 @@
 			if (result.type === 'success') {
 				const { data } = result;
 				const userName = data.user?.candidateName;
-				user.set({ isAuthenticated: true, name: userName });
+				user.set({ isAuthenticated: true, name: userName, userUuid: data?.user?.uuid });
 				displayLoginPopUp = false;
 			}
 			// handleDisplayLoginPopUp();
