@@ -1,10 +1,11 @@
 import { convertYMDtoDMY } from '$lib/utils/helper';
+import { BASE_URL } from '$lib/config';
 
 export async function GET({ params, cookies }) {
 	let res
 	try {
 		 res = await fetch(
-			`http://read-admin-api-dev.ap-south-1.elasticbeanstalk.com/apis/v1/rsetis/${params.id}/courses`
+		`${BASE_URL}/apis/v1/rsetis/${params.id}/courses`
 		);
 		if (res.status !== 200 || !res.ok) throw new Error('Failed to fetch courses');
 

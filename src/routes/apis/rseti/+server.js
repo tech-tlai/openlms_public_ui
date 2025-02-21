@@ -1,11 +1,12 @@
 import { json } from '@sveltejs/kit';
+import { BASE_URL } from '$lib/config';
 
 // API to get list of all RSETIs
 export async function GET({ locals }) {
 	let res;
 	const lang = locals?.lang || 'en';
 	try {
-		res = await fetch(`http://read-admin-api-dev.ap-south-1.elasticbeanstalk.com/apis/v1/rsetis`);
+		res = await fetch(`${BASE_URL}/apis/v1/rsetis`);
 
 		if (res?.status != 200 || !res?.ok) {
 			throw new Error('Failed to fetch data');

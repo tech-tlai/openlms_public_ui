@@ -1,7 +1,9 @@
+import { BASE_URL } from '$lib/config';
+
 export async function GET() {
 	try {
 		const res = await fetch(
-			'http://read-admin-api-dev.ap-south-1.elasticbeanstalk.com/apis/v1/stats'
+			`${BASE_URL}/apis/v1/stats`
 		);
 		if (!res.ok || res.status !== 200) {
 			return new Response(res.body, { status: res.status, headers: res.headers });

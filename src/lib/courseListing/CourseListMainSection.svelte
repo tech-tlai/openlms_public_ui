@@ -2,7 +2,7 @@
 	import { format } from 'svelte-i18n';
 	import { onMount, tick } from 'svelte';
 	import { Sorting_Orders } from '../../config/constants';
-	import { categoryList } from '$lib/temp.admin.js';
+	import { categoryList } from '$lib/data.js'
 	import SearchBar from '$lib/Components/SearchBar.svelte';
 	import { _ } from 'svelte-i18n';
 	import Sidebar from '$lib/faq/Sidebar.svelte';

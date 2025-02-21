@@ -10,7 +10,7 @@
 	import { _ } from 'svelte-i18n';
 	import YoutubePlayer from '$lib/Components/YoutubePlayer.svelte';
 	import { page } from '$app/stores';
-	import { categoryList as courseCategoryList } from '$lib/temp.admin.js';
+	import { categoryList as courseCategoryList } from '$lib/data.js';
 	import { extractYouTubeVideoId } from '$lib/utils/helper.js';
 
 	export let params;

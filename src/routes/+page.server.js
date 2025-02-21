@@ -1,4 +1,5 @@
 import { error, fail } from '@sveltejs/kit';
+import { BASE_URL } from '$lib/config';
 
 export const actions = {
   default: async ({ request, fetch, cookies }) => {
@@ -18,7 +19,7 @@ export const actions = {
 
 			// Make the API call
 			const response = await fetch(
-				'http://read-admin-api-dev.ap-south-1.elasticbeanstalk.com/apis/v1/auth/signin',
+				`${BASE_URL}/apis/v1/auth/signin`,
 				{
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
@@ -51,7 +52,7 @@ export const actions = {
 				});
 
 				const userDetailsResponse = await fetch(
-					'http://read-admin-api-dev.ap-south-1.elasticbeanstalk.com/apis/v1/trainee-profiles/profile',
+					`${BASE_URL}/apis/v1/trainee-profiles/profile`,
 					{
 						method: 'GET',
 						headers: {

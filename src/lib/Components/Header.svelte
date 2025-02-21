@@ -28,12 +28,15 @@
 		// { id: 2, name: 'हिंदी', value: 'hi' }
 	];
 
-	$: user.subscribe((value) => {
-		loggedIn = value?.isAuthenticated ?? false;
-	});
 
 	onMount(() => {
 		setLangFromProps(lang);
+		const unsubscribe = user.subscribe((value) => {
+			loggedIn = value?.isAuthenticated ?? false;
+		});
+		return () => {
+			unsubscribe();
+		};
 	});
 
 	function setLangFromProps() {
