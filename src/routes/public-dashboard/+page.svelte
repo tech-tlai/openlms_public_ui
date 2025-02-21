@@ -27,6 +27,15 @@
 
 	let tabs = [
 		{
+			text: 'Course Stats',
+			component: CourseStatsContainer,
+			clicked: false,
+			textDispaly: $format('CourseStats'),
+			historicalData: { coursesByState, overallStats },
+			lang: lang,
+			icon: '/coursesIcon.svg'
+		},
+		{
 			text: 'Trainee Stats',
 			component: TraineeStatsContainer,
 			clicked: false,
@@ -42,15 +51,6 @@
 			},
 			lang: lang,
 			icon: '/traineesEnrolledIcon.svg'
-		},
-		{
-			text: 'Course Stats',
-			component: CourseStatsContainer,
-			clicked: false,
-			textDispaly: $format('CourseStats'),
-			historicalData: { coursesByState, overallStats },
-			lang: lang,
-			icon: '/coursesIcon.svg'
 		}
 		// {
 		// 	text: 'Assessment',
@@ -67,6 +67,14 @@
 	function setTabsData() {
 		tabs = [
 			{
+				text: 'Course Stats',
+				component: CourseStatsContainer,
+				clicked: false,
+				textDispaly: $format('CourseStats'),
+				historicalData: { coursesByState, overallStats },
+				icon: '/coursesIcon.svg'
+			},
+			{
 				text: 'Trainee Stats',
 				component: TraineeStatsContainer,
 				clicked: false,
@@ -81,14 +89,6 @@
 					overallStats
 				},
 				icon: '/traineesEnrolledIcon.svg'
-			},
-			{
-				text: 'Course Stats',
-				component: CourseStatsContainer,
-				clicked: false,
-				textDispaly: $format('CourseStats'),
-				historicalData: { coursesByState, overallStats },
-				icon: '/coursesIcon.svg'
 			}
 			// {
 			// 	text: 'Assessment',

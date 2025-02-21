@@ -46,7 +46,7 @@
 					{$_('Chapters')} : {numberOfChapters}</span
 				>
 				{#if showPlannedDate}
-					<span class="text-xs flex items-center gap-1">
+					<span class="text-xs flex items-center gap-1 font-medium">
 						<img src="/calendar.svg" alt="" />
 
 						{$_('PlannedDate')} : {formatDateMMMYYYY(
