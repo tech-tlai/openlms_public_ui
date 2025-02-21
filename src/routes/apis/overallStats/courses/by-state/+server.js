@@ -17,6 +17,7 @@ export async function GET() {
 		}
 
 		return new Response(JSON.stringify(data), {
+			status: 500,
 			headers: { 'Content-Type': 'application/json' }
 		});
 	} catch (error) {

@@ -88,6 +88,9 @@ export async function load({ fetch, parent }) {
 			}
 			if (res.status === 200) {
 				let data = await res.json();
+				if (data?.length === 0) {
+					throw new Error('No data found');
+				}
 				return { data, status: 200 };
 			}
 		} catch (err) {
