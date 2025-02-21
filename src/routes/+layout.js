@@ -43,7 +43,7 @@ export async function load({ fetch, data }) {
 			return { allCoursesData: languageFilteredData, allCoursesMap: courseDataMap };
 		} catch (err) {
 			console.log(err);
-			return { allCoursesData: [], allCoursesMap: {} };
+			return { allCoursesData: [], allCoursesMap: {}, error:err.message };
 		}
 	};
 

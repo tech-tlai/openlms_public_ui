@@ -28,7 +28,7 @@
 	let loading = false;
 
 	function setTotalVideoDuration() {
-		if (Object.keys(courseStats)?.length === 0) return;
+		// if (Object.keys(courseStats)?.length === 0) return;
 		courseStatsDetails = [
 			{
 				statName: 'Chapters',
@@ -42,7 +42,7 @@
 			},
 			{
 				statName: 'CourseDuration',
-				statValue: courseStats?.courseDuration + ' ' + $_('Days'),
+				statValue: courseStats?.courseDuration? courseStats?.courseDuration + ' ' + $_('Days') : null,
 				iconSvg: '/courseDurationIcon.svg'
 			},
 			{
